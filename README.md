@@ -14,6 +14,8 @@ var logar = require("logar")("MyApp"[, enableTimestamps]);
 ```
 "MyApp" will be used as keyword. You can leave this empty if you want. If you want to disable timestamps, pass 'false' as second argument.
 
+*Note:* you can also use the LOGAR_KEYWORD environment variable to set the keyword.
+
 #### Basic functions
 These are the basic functions of Logar. They have colored output in the console.
 
