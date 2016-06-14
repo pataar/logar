@@ -32,7 +32,10 @@ module.exports = (keyword, enableTimestamp = true) => {
 			args[0] = chalk.yellow(args[0]);
 			if (args.length > 1) {
 				for (arg in args) {
-					args[arg] = chalk.green(arg);
+					//skip the first entry
+					if (arg !== 0) {
+						args[arg] = chalk.green(args[arg]);
+					}
 				}
 			}
 
@@ -84,18 +87,17 @@ module.exports = (keyword, enableTimestamp = true) => {
 
 		loading: (message) => {
 
-			var i               = 0,
-			    loadingInterval = setInterval(function () {
-				    process.stdout.cursorTo(0);
-				    process.stdout.clearLine();
-				    baseLog();
-				    i = (i + 1) % 4;
-				    var dots = new Array(i + 1).join(".");
-				    process.stdout.write(chalk.green(message + dots)); // write text
-			    }, 200);
+			var i               = 0;
+			var loadingInterval = setInterval(function () {
+				process.stdout.cursorTo(0);
+				process.stdout.clearLine();
+				baseLog();
+				i        = (i + 1) % 4;
+				var dots = new Array(i + 1).join(".");
+				process.stdout.write(chalk.green(message + dots)); // write text
+			}, 200);
 
 			return function (completeMessage, err) {
-				// console.log(rl);
 				clearInterval(loadingInterval);
 				process.stdout.cursorTo(0); // move cursor to beginning of line
 				process.stdout.clearLine(); // clear current text
