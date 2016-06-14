@@ -1,7 +1,6 @@
 const chalk      = require('chalk'),
       dateformat = require('dateformat'),
-      _          = require("lodash"),
-      readline   = require('readline');
+      _          = require("lodash");
 
 module.exports = (keyword, enableTimestamp = true) => {
 
@@ -33,7 +32,7 @@ module.exports = (keyword, enableTimestamp = true) => {
 			args[0] = chalk.yellow(args[0]);
 			if (args.length > 1) {
 				for (arg in args) {
-					args[arg] = calk.green(arg);
+					args[arg] = chalk.green(arg);
 				}
 			}
 

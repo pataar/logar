@@ -1,6 +1,6 @@
 {
   "name": "logar",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Simple log library for node.",
   "main": "main.js",
   "repository": {
